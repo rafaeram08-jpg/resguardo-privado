@@ -1,0 +1,6 @@
+{
+  "name": "Sitio Web Completo",
+  "description": "Una plantilla de sitio web completa y moderna.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

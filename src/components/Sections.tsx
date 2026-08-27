@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Globe, Fingerprint, Database, Check, Box, Cpu, ArrowRight } from 'lucide-react';
+import { Search, Globe, Fingerprint, Database, Check, Box, Cpu, ArrowRight, Building2, Car, Landmark, Bitcoin, Gem, Gavel, Quote, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const fadeUp = {
@@ -175,6 +175,138 @@ export function FinalCTA() {
             </div>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export function VulnerableActivities() {
+  const activities = [
+    {
+      icon: <Building2 size={24} />,
+      title: 'Desarrollo Inmobiliario',
+      desc: 'Construcción, desarrollo o comercialización de bienes inmuebles. Automatiza el cruce de umbrales de identificación y aviso.'
+    },
+    {
+      icon: <Car size={24} />,
+      title: 'Comercialización de Vehículos',
+      desc: 'Venta de vehículos nuevos o usados, aéreos, marítimos o terrestres. Monitoreo constante de operaciones en efectivo.'
+    },
+    {
+      icon: <Landmark size={24} />,
+      title: 'Arrendamiento Inmobiliario',
+      desc: 'Gestión de rentas y arrendamiento de inmuebles con alertas automáticas cuando superan las UMAs establecidas por la ley.'
+    },
+    {
+      icon: <Bitcoin size={24} />,
+      title: 'Activos Virtuales',
+      desc: 'Operaciones con criptomonedas y activos virtuales. Cumplimiento estricto para exchanges y plataformas tecnológicas.'
+    },
+    {
+      icon: <Gem size={24} />,
+      title: 'Metales y Piedras Preciosas',
+      desc: 'Joyería y relojería de alto valor. Estructuración de reportes para operaciones recurrentes que superan el límite.'
+    },
+    {
+      icon: <Gavel size={24} />,
+      title: 'Servicios Profesionales',
+      desc: 'Servicios independientes, contables y jurídicos. Gestión de expedientes de beneficiarios controladores y clientes corporativos.'
+    }
+  ];
+
+  return (
+    <section className="section-padding bg-slate-50 border-b border-slate-200 relative overflow-hidden" id="actividades">
+      <div className="max-w-[80rem] mx-auto relative z-10">
+        <motion.div {...fadeUp} className="text-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Actividades Vulnerables Soportadas</h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Nuestra plataforma está parametrizada para gestionar los umbrales de identificación y aviso exigidos por la LFPIORPI para los principales sectores económicos.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {activities.map((act, i) => (
+            <motion.div 
+              key={i} 
+              {...fadeUp} 
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="saas-card p-8 group bg-white hover:border-emerald-200"
+            >
+              <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-center mb-6 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
+                {act.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-slate-900">{act.title}</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">
+                {act.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Testimonials() {
+  const testimonials = [
+    {
+      quote: "Desde que integramos LexLFPIORPI, nuestro tiempo de validación de expedientes bajó de 45 minutos a segundos. Las alertas automáticas del Art. 69-B nos salvaron de dos operaciones de alto riesgo el mes pasado.",
+      author: "Laura M.",
+      role: "Oficial de Cumplimiento",
+      company: "Desarrollos Inmobiliarios Nexa",
+    },
+    {
+      quote: "La generación de XMLs para el Portal SPPLD era un dolor de cabeza mensual. Ahora el sistema calcula los umbrales automáticamente y solo tenemos que validar antes de enviar. Imprescindible.",
+      author: "Roberto G.",
+      role: "Director de Operaciones",
+      company: "Grupo Automotriz Vértice",
+    },
+    {
+      quote: "Como despacho de abogados, gestionamos múltiples clientes. Tener todos los expedientes encriptados y las validaciones de listas negras en un solo lugar nos da una tranquilidad invaluable.",
+      author: "Elena R.",
+      role: "Socia Directora",
+      company: "Ruiz & Asociados Corporativo",
+    }
+  ];
+
+  return (
+    <section className="section-padding bg-white relative overflow-hidden" id="testimonios">
+      <div className="max-w-[80rem] mx-auto relative z-10">
+        <motion.div {...fadeUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Respaldado por Oficiales de Cumplimiento</h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Descubre cómo empresas mexicanas están protegiendo sus operaciones y ahorrando cientos de horas en carga administrativa.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((test, i) => (
+            <motion.div 
+              key={i} 
+              {...fadeUp} 
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="saas-card p-8 bg-slate-50 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex gap-1 mb-6 text-amber-400">
+                  <Star size={18} fill="currentColor" />
+                  <Star size={18} fill="currentColor" />
+                  <Star size={18} fill="currentColor" />
+                  <Star size={18} fill="currentColor" />
+                  <Star size={18} fill="currentColor" />
+                </div>
+                <p className="text-slate-700 leading-relaxed font-medium mb-8">
+                  "{test.quote}"
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-slate-900">{test.author}</p>
+                <p className="text-sm text-slate-500">{test.role}</p>
+                <p className="text-xs font-semibold text-[#10B981] mt-1">{test.company}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

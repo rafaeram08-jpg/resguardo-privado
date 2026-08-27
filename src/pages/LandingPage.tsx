@@ -6,7 +6,8 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import { useNavigate } from 'react-router-dom';
 
-import { TrustLogos, FeaturesGrid, DetailedInfo, FinalCTA } from '../components/Sections';
+import { TrustLogos, FeaturesGrid, DetailedInfo, VulnerableActivities, Testimonials, FinalCTA } from '../components/Sections';
+import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 const Scene3D = React.lazy(() => import('../components/Scene3D'));
 
@@ -142,46 +143,72 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="px-6 max-w-[80rem] mx-auto flex flex-col items-center text-center">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center w-full"
-          >
-            <a href="#features" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-10 hover:bg-emerald-100 transition-colors shadow-sm">
+          <div className="flex flex-col items-center w-full">
+            <motion.a 
+              initial={{ opacity: 0, scale: 0.9, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              href="#features" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-10 hover:bg-emerald-100 transition-colors shadow-sm"
+            >
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
               Nuevo: Conexión directa al Portal SPPLD del SAT
               <ArrowRight size={14} className="ml-1 text-emerald-700" />
-            </a>
+            </motion.a>
 
-            <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] font-extrabold tracking-tighter mb-8 max-w-4xl text-balance">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] font-extrabold tracking-tighter mb-8 max-w-4xl text-balance"
+            >
               La API moderna para <br className="hidden md:block" />
               <span className="text-gradient">el cumplimiento SAT.</span>
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl text-balance tracking-tight">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl text-balance tracking-tight"
+            >
               Infraestructura diseñada para automatizar la Ley Antilavado (LFPIORPI). Extrae datos de Constancias Fiscales, monitorea el Art. 69-B y genera XMLs al SAT en milisegundos.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <button className="btn-primary group text-lg py-3 px-8 w-full sm:w-auto shadow-emerald-900/10" onClick={() => navigate('/login')}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="btn-primary group text-lg py-3 px-8 w-full sm:w-auto shadow-emerald-900/10" onClick={() => navigate('/login')}
+              >
                 Integrar API
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="btn-secondary group text-lg py-3 px-8 w-full sm:w-auto" onClick={() => scrollToSection('features')}>
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="btn-secondary group text-lg py-3 px-8 w-full sm:w-auto" onClick={() => scrollToSection('features')}
+              >
                 <Terminal size={18} className="mr-2 text-slate-500 group-hover:text-emerald-800 transition-colors" />
                 Explorar Infraestructura
-              </button>
-            </div>
-          </motion.div>
+              </motion.button>
+            </motion.div>
+          </div>
         </section>
 
         <TrustLogos />
         <FeaturesGrid />
+        <VulnerableActivities />
         <DetailedInfo />
+        <Testimonials />
+        <FAQ />
         <FinalCTA />
 
       </main>

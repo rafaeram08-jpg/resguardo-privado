@@ -43,7 +43,7 @@ export function FeaturesGrid() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.0, ease: "easeOut" as any }} className="saas-card p-8 md:p-10 group bg-white hover:border-emerald-200">
-            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#064E3B] group-hover:bg-[#064E3B] group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
               <Search size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Extracción Constancias (CSF)</h3>
@@ -53,7 +53,7 @@ export function FeaturesGrid() {
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as any }} className="saas-card p-8 md:p-10 group bg-white hover:border-emerald-200">
-            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#064E3B] group-hover:bg-[#064E3B] group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
               <Globe size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Listas Negras y Art. 69-B</h3>
@@ -63,7 +63,7 @@ export function FeaturesGrid() {
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" as any }} className="saas-card p-8 md:p-10 group bg-white hover:border-emerald-200">
-            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#064E3B] group-hover:bg-[#064E3B] group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
               <Fingerprint size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Beneficiario Controlador</h3>
@@ -73,7 +73,7 @@ export function FeaturesGrid() {
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" as any }} className="saas-card p-8 md:p-10 group bg-white hover:border-emerald-200">
-            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#064E3B] group-hover:bg-[#064E3B] group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-8 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
               <Database size={28} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Avisos XML Automatizados</h3>
@@ -115,7 +115,7 @@ export function DetailedInfo() {
                 className="flex items-start gap-4 text-slate-800 font-medium"
               >
                 <div className="w-6 h-6 mt-0.5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 border border-emerald-200">
-                  <Check size={14} className="text-[#064E3B]" />
+                  <Check size={14} className="text-[#10B981]" />
                 </div>
                 <span className="leading-snug">{text}</span>
               </motion.li>
@@ -132,7 +132,7 @@ export function DetailedInfo() {
               </div>
               <div className="space-y-3 font-mono text-xs md:text-[13px] text-slate-300">
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"event_type":</span> <span className="text-rose-400">"sat.69b_alerta"</span>,</div>
-                <div className="flex"><span className="text-blue-400 w-32 shrink-0">"rfc_empresa":</span> <span className="text-emerald-300">"GACM800101XX9"</span>,</div>
+                <div className="flex"><span className="text-blue-400 w-32 shrink-0">"rfc_empresa":</span> <span className="text-emerald-300">"ABC010101XYZ"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"estatus_previo":</span> <span className="text-emerald-400">"limpio"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"estatus_nuevo":</span> <span className="text-rose-400 font-bold">"efo_definitivo"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"accion_sistema":</span> <span className="text-slate-400">"transacciones_bloqueadas"</span>,</div>
@@ -152,7 +152,7 @@ export function FinalCTA() {
       <div className="max-w-[60rem] mx-auto">
         <motion.div 
           {...fadeUp}
-          className="bg-[#064E3B] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl"
+          className="bg-[#10B981] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl"
         >
           {/* Decorative background circles */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-emerald-500/20 blur-3xl"></div>
@@ -166,7 +166,7 @@ export function FinalCTA() {
               Únete a las empresas líderes que ya utilizan LexLFPIORPI para operar de forma segura y cumplir con las normativas del SAT sin esfuerzo manual.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-white text-[#064E3B] font-bold text-lg py-3.5 px-8 rounded-xl shadow-lg hover:bg-emerald-50 hover:scale-105 transition-all">
+              <button className="bg-white text-[#10B981] font-bold text-lg py-3.5 px-8 rounded-xl shadow-lg hover:bg-emerald-50 hover:scale-105 transition-all">
                 Crear cuenta gratis
               </button>
               <button className="bg-emerald-800/50 border border-emerald-600/50 text-white font-semibold text-lg py-3.5 px-8 rounded-xl hover:bg-emerald-800 transition-colors">

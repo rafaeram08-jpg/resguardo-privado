@@ -9,7 +9,7 @@
   --text-secondary: #475569;
   --border-light: #E2E8F0;
   
-  --accent-dark: #064E3B; /* Deep Dark Green / Emerald 900 */
+  --accent-dark: #10B981; /* Deep Dark Green / Emerald 900 */
   --accent-main: #059669; /* Emerald 600 */
   --accent-light: #D1FAE5; /* Emerald 100 */
   
@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 6px -1px rgba(6, 78, 59, 0.1), 0 2px 4px -1px rgba(6, 78, 59, 0.06);
 }
 .btn-primary:hover {
-  background-color: #022C22; /* Emerald 950 */
+  background-color: #059669; /* Emerald 950 */
   transform: translateY(-1px);
   box-shadow: 0 10px 15px -3px rgba(6, 78, 59, 0.1), 0 4px 6px -2px rgba(6, 78, 59, 0.05);
 }

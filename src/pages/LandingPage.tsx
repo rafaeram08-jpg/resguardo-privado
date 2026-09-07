@@ -36,8 +36,9 @@ export default function LandingPage() {
 
   const navLinks = [
     { id: 'features', label: 'Infraestructura' },
+    { id: 'actividades', label: 'Sectores' },
     { id: 'methodology', label: 'Portal SPPLD' },
-    { id: 'cta', label: 'Comenzar' },
+    { id: 'faq', label: 'FAQ' },
   ];
 
   const scrollToSection = (id: string) => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, Globe, Fingerprint, Database, Check, Box, Cpu, ArrowRight, Building2, Car, Landmark, Bitcoin, Gem, Gavel, Quote, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, Globe, Fingerprint, Database, Check, Box, Cpu, ArrowRight, Building2, Car, Landmark, Bitcoin, Gem, Gavel, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const fadeUp = {
@@ -132,7 +132,7 @@ export function DetailedInfo() {
               </div>
               <div className="space-y-3 font-mono text-xs md:text-[13px] text-slate-300">
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"event_type":</span> <span className="text-rose-400">"sat.69b_alerta"</span>,</div>
-                <div className="flex"><span className="text-blue-400 w-32 shrink-0">"rfc_empresa":</span> <span className="text-emerald-300">"ABC010101XYZ"</span>,</div>
+                <div className="flex"><span className="text-blue-400 w-32 shrink-0">"rfc_empresa":</span> <span className="text-emerald-300">"EKU9003173C9"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"estatus_previo":</span> <span className="text-emerald-400">"limpio"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"estatus_nuevo":</span> <span className="text-rose-400 font-bold">"efo_definitivo"</span>,</div>
                 <div className="flex"><span className="text-blue-400 w-32 shrink-0">"accion_sistema":</span> <span className="text-slate-400">"transacciones_bloqueadas"</span>,</div>
@@ -181,6 +181,15 @@ export function FinalCTA() {
 }
 
 export function VulnerableActivities() {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const activities = [
     {
       icon: <Building2 size={24} />,
@@ -225,47 +234,66 @@ export function VulnerableActivities() {
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {activities.map((act, i) => (
-            <motion.div 
-              key={i} 
-              {...fadeUp} 
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="saas-card p-8 group bg-white hover:border-emerald-200"
-            >
-              <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-center mb-6 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
-                {act.icon}
+          {isLoading ? (
+            Array.from({ length: 6 }).map((_, i) => (
+              <div key={`skeleton-${i}`} className="saas-card p-8 bg-white border-slate-200">
+                <div className="w-12 h-12 bg-slate-100 rounded-xl mb-6 animate-pulse"></div>
+                <div className="h-6 bg-slate-100 rounded animate-pulse w-3/4 mb-4"></div>
+                <div className="h-4 bg-slate-100 rounded animate-pulse w-full mb-2"></div>
+                <div className="h-4 bg-slate-100 rounded animate-pulse w-5/6"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">{act.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-sm">
-                {act.desc}
-              </p>
-            </motion.div>
-          ))}
+            ))
+          ) : (
+            activities.map((act, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="saas-card p-8 group bg-white hover:border-emerald-200"
+              >
+                <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-center mb-6 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
+                  {act.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900">{act.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  {act.desc}
+                </p>
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
     </section>
   );
 }
 
+
 export function Testimonials() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const testimonials = [
     {
-      quote: "Desde que integramos LexLFPIORPI, nuestro tiempo de validación de expedientes bajó de 45 minutos a segundos. Las alertas automáticas del Art. 69-B nos salvaron de dos operaciones de alto riesgo el mes pasado.",
-      author: "Laura M.",
-      role: "Oficial de Cumplimiento",
-      company: "Desarrollos Inmobiliarios Nexa",
+      quote: "Desde que integramos la API, nuestro tiempo de validación de expedientes bajó de 45 minutos a segundos. Las alertas automáticas del Art. 69-B bloquearon operaciones de alto riesgo el mes pasado.",
+      author: "Oficial de Cumplimiento",
+      company: "Despacho Inmobiliario",
     },
     {
-      quote: "La generación de XMLs para el Portal SPPLD era un dolor de cabeza mensual. Ahora el sistema calcula los umbrales automáticamente y solo tenemos que validar antes de enviar. Imprescindible.",
-      author: "Roberto G.",
-      role: "Director de Operaciones",
-      company: "Grupo Automotriz Vértice",
+      quote: "La generación de XMLs para el Portal SPPLD era un proceso lento y manual. Ahora el sistema calcula los umbrales automáticamente y solo tenemos que revisar y autorizar. Imprescindible.",
+      author: "Director de Operaciones",
+      company: "Agencia Automotriz",
     },
     {
-      quote: "Como despacho de abogados, gestionamos múltiples clientes. Tener todos los expedientes encriptados y las validaciones de listas negras en un solo lugar nos da una tranquilidad invaluable.",
-      author: "Elena R.",
-      role: "Socia Directora",
-      company: "Ruiz & Asociados Corporativo",
+      quote: "Gestionamos múltiples clientes corporativos. Tener todos los expedientes encriptados y las validaciones de listas negras del SAT en un solo lugar nos da una tranquilidad invaluable.",
+      author: "Socio Director",
+      company: "Firma Legal Corporativa",
     }
   ];
 
@@ -273,39 +301,64 @@ export function Testimonials() {
     <section className="section-padding bg-white relative overflow-hidden" id="testimonios">
       <div className="max-w-[80rem] mx-auto relative z-10">
         <motion.div {...fadeUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Respaldado por Oficiales de Cumplimiento</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Casos de Uso Reales</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Descubre cómo empresas mexicanas están protegiendo sus operaciones y ahorrando cientos de horas en carga administrativa.
+            Descubre cómo diferentes sectores están protegiendo sus operaciones y ahorrando horas en carga administrativa de forma segura.
           </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((test, i) => (
-            <motion.div 
-              key={i} 
-              {...fadeUp} 
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="saas-card p-8 bg-slate-50 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex gap-1 mb-6 text-amber-400">
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
+          {isLoading ? (
+             Array.from({ length: 3 }).map((_, i) => (
+              <div key={`skel-test-${i}`} className="saas-card p-8 bg-slate-50 flex flex-col justify-between border border-slate-100">
+                <div>
+                  <div className="flex gap-2 mb-6">
+                    <div className="w-4 h-4 rounded bg-slate-200 animate-pulse"></div>
+                    <div className="w-4 h-4 rounded bg-slate-200 animate-pulse"></div>
+                    <div className="w-4 h-4 rounded bg-slate-200 animate-pulse"></div>
+                    <div className="w-4 h-4 rounded bg-slate-200 animate-pulse"></div>
+                    <div className="w-4 h-4 rounded bg-slate-200 animate-pulse"></div>
+                  </div>
+                  <div className="space-y-2 mb-8">
+                    <div className="h-4 bg-slate-200 rounded animate-pulse w-full"></div>
+                    <div className="h-4 bg-slate-200 rounded animate-pulse w-full"></div>
+                    <div className="h-4 bg-slate-200 rounded animate-pulse w-4/5"></div>
+                  </div>
                 </div>
-                <p className="text-slate-700 leading-relaxed font-medium mb-8">
-                  "{test.quote}"
-                </p>
+                <div>
+                  <div className="h-4 bg-slate-200 rounded animate-pulse w-1/2 mb-2"></div>
+                  <div className="h-3 bg-slate-200 rounded animate-pulse w-1/3"></div>
+                </div>
               </div>
-              <div>
-                <p className="font-bold text-slate-900">{test.author}</p>
-                <p className="text-sm text-slate-500">{test.role}</p>
-                <p className="text-xs font-semibold text-[#10B981] mt-1">{test.company}</p>
-              </div>
-            </motion.div>
-          ))}
+            ))
+          ) : (
+            testimonials.map((test, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="saas-card p-8 bg-slate-50 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex gap-1 mb-6 text-amber-400">
+                    <Star size={18} fill="currentColor" />
+                    <Star size={18} fill="currentColor" />
+                    <Star size={18} fill="currentColor" />
+                    <Star size={18} fill="currentColor" />
+                    <Star size={18} fill="currentColor" />
+                  </div>
+                  <p className="text-slate-700 leading-relaxed font-medium mb-8">
+                    "{test.quote}"
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900">{test.author}</p>
+                  <p className="text-xs font-semibold text-[#10B981] mt-1">{test.company}</p>
+                </div>
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
     </section>
